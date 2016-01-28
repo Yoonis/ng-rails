@@ -1,4 +1,15 @@
 angular.module('readIt', ['ui.router'])
+.config([
+  '$stateProvider',
+  '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider){
+    $stateProvider.state('home', {
+      url: '/home',
+      templateURL: '/home.html',
+      controller: 'MainCtrl'
+    });
+    $urlRouterProvider.otherwise('home');
+  }])
 .factory('posts', [function(){
   var o = {
     posts: []
