@@ -1,4 +1,4 @@
-angular.module('readIt', [])
+angular.module('readIt', ['ui.router'])
 .factory('posts', [function(){
   var o = {
     posts: []
