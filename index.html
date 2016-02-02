@@ -4,48 +4,45 @@
     <meta charset="UTF-8">
     <title>ReadIt</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.17/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
     <style> .glyphicon-thumbs-up { cursor:pointer } </style>
   </head>
 
-  <body ng-app="readIt" ng-controller="MainCtrl">
+  <body ng-app="readIt">
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-
-          <div class="page-header">
-            <h1>ReadIt</h1>
-          </div>
-
-          <form ng-submit="addPost()">
-            <h3>Add New Post</h3>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Title" ng-model="title"></input>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Link" ng-model="link"></input>
-            </div>
-            <button type="submit" class="btn btn-primary">Post</button>
-          </form>
-
-          <div ng-repeat="post in posts | orderBy: '-upvotes'">
-            <span class="glyphicon glyphicon-thumbs-up"
-            ng-click="incrementUpvotes(post)"></span>
-            {{post.upvotes}}
-
-            <!-- If post.link is truthy, then show the title as a link and hide the regular title. If post.link is falsey, then the regular title will not be hidden. -->
-            <a ng-show="post.link" href="{{post.link}}">
-              {{post.title}}
-            </a>
-            <span ng-hide="post.link">
-              {{post.title}}
-            </span> 
-          </div>
-
+          <ui-view></ui-view>
         </div>
       </div>
     </div>
+
+    <script type="text/ng-template" id="/home.html">
+      <div class="page-header">
+        <h1>ReadIt</h1>
+      </div>
+
+      <h3>Add New Post</h3>
+      <form ng-submit="addPost()">
+        <input type="text" class="form-control" placeholder="Title" ng-model="title"></input>
+        <input type="text" class="form-control" placeholder="Link" ng-model="link"></input>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </form>
+
+      <div ng-repeat="post in posts | orderBy: '-upvotes'">
+        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+        {{post.upvotes}}
+
+        // If post.link is truthy, then show the title as a link and hide the regular title. If post.link is falsey, then the regular title will not be hidden.
+        <a ng-show="post.link" href="{{post.link}}">
+          {{post.title}}
+        </a>
+        <span ng-hide="post.link">
+          {{post.title}}
+        </span> 
+      </div>
+    </script>
   </body>
 </html>
