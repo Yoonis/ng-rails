@@ -1,10 +1,10 @@
-angular.module('readIt', ['ui.router'])
+var myApp = angular.module('readIt', ['ui.router']);
 
-.run(($rootScope) => {
+myApp.run(($rootScope) => {
   $rootScope.$on("$stateChangeError", console.log.bind(console));
-})
+});
 
-.config([
+myApp.config([
   '$stateProvider',
   '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
@@ -21,34 +21,11 @@ angular.module('readIt', ['ui.router'])
       });
     $urlRouterProvider.otherwise('home');
   }
-])
+]);
 
-.factory('posts', [
+myApp.factory('posts', [
   function() {
     var o = { posts: [ ] };
     return o;
-  }
-])
-
-.controller('MainCtrl', [
-  '$scope', 
-  'posts',
-  function($scope, posts) {
-    $scope.posts = posts.posts;
-
-    $scope.addPost = function() {
-      if (!$scope.title || $scope.title === '') { return; }
-      $scope.posts.push({
-        title: $scope.title, 
-        link: $scope.link,
-        upvotes: 0
-      });
-      $scope.title = '';
-      $scope.link = '';
-    };
-
-    $scope.incrementUpvotes = function(post) {
-      post.upvotes += 1;
-    };
   }
 ]);

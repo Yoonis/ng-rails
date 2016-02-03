@@ -26,8 +26,8 @@
 
       <h3>Add New Post</h3>
       <form ng-submit="addPost()">
-        <input type="text" class="form-control" placeholder="Title" ng-model="title"></input>
-        <input type="text" class="form-control" placeholder="Link" ng-model="link"></input>
+        <input type="text" class="form-control" placeholder="Title" ng-model="title"/>
+        <input type="text" class="form-control" placeholder="Link" ng-model="link"/>
         <button type="submit" class="btn btn-primary">Post</button>
       </form>
 
@@ -41,8 +41,31 @@
         </a>
         <span ng-hide="post.link">
           {{post.title}}
-        </span> 
+        </span>
+        <span>
+          <a href="#/posts/{{$index}}">Comments</a>
+        </span>
       </div>
     </script>
+
+    <script type="text/ng-template" id="/posts.html">
+      <div class="page-header">
+        <h3>
+          <a ng-show="post.link" href="{{post.link}}">
+            {{post.title}}
+          </a>
+          <span ng-hide="post.link">
+            {{post.title}}
+          </span> 
+        </h3>
+      </div>
+
+      <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+        {{comment.upvotes}} - by {{comment.author}}
+        <span>{{comment.body}}</span>
+      </div>
+    </script>
+
   </body>
 </html>
