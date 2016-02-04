@@ -7,8 +7,12 @@
 </head>
 <body>
 
+<!-- Flash notices -->
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
+<!-- Omniauth redirects user to GitHub. After succesful login, user is redirected via callback method. -->
+<%= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github) %>
 
 <%= yield %>
 
