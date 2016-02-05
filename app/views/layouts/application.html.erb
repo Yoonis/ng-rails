@@ -13,6 +13,7 @@
 
 <!-- Omniauth redirects user to GitHub. After succesful login, user is redirected via callback method. -->
 <%= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github) %>
+<%= link_to "Cancel GitHub sign in", cancel_user_registration_path %>
 
 <%= yield %>
 
