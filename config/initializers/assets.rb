@@ -9,6 +9,3 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-
-all_oauth_config = YAML.load_file( File.join( Rails.root, 'app', 'config', 'oauth.yml' ) )
-current_oauth_config = all_oauth_config[Rails.env]
