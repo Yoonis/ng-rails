@@ -1,4 +1,4 @@
-var myApp = angular.module('readIt', ['ui.router']);
+var myApp = angular.module('readIt', ['ui.router', 'templates']);
 
 myApp.run(($rootScope) => {
   $rootScope.$on("$stateChangeError", console.log.bind(console));
