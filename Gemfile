@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -20,7 +19,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Devise as the authentication platform
 gem 'devise'
 
+# Use GitHub provider for OAuth
 gem 'omniauth-github'
+
+# angular-rails-templates compiles HTML templates into JS files that are inserted into Angular's $templateCache. This allows us to move templates into the asset pipeline.
+gem 'angular-rails-templates'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
