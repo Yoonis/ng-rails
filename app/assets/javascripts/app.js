@@ -11,21 +11,22 @@ myApp.config([
     $stateProvider
       .state('home', {
         url: '/home',
-        templateURL: '/home.html',
-        controller: 'MainCtrl'
+        views: {
+          "main": {
+            controller: 'MainCtrl',
+            templateUrl: 'home/_home.html'
+          }
+        }
       })
       .state('posts', {
         url: '/posts/{id}',
-        templateUrl: '/posts.html',
-        controller: 'PostsCtrl'
+        views: {
+          "posts": {
+            controller: 'PostsCtrl',
+            templateUrl: 'posts/_posts.html'
+          }
+        }
       });
     $urlRouterProvider.otherwise('home');
-  }
-]);
-
-myApp.factory('posts', [
-  function() {
-    var o = { posts: [ ] };
-    return o;
   }
 ]);
