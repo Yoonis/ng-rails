@@ -7,6 +7,20 @@ Rails.application.routes.draw do
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  resources :posts, only: [:create, :index, :show] do
+    resources :comments, only: [:create, :show] do
+
+      # Upvote action maps URL params to member comment :id instead of :post_id
+      member do
+        put '/upvote' => 'comments#upvote'
+      end
+    end
+
+    member do
+      put '/upvote' => 'posts#upvote'
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
