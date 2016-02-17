@@ -13,20 +13,33 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          
-          <!-- Flash notices -->
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <div>
+            <%= link_to "Register", new_user_registration_path %>
+           </div>
+
+          <div>
+            <%= link_to "Sign In", new_user_session_path %>
+          </div>
 
           <!-- Omniauth redirects user to GitHub. After succesful login, user is redirected via callback method. -->
-          <%= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github) %>
-          <%= link_to "Cancel GitHub sign in", cancel_user_registration_path %>
+          <div>
+            <%= link_to "Sign In with GitHub", user_omniauth_authorize_path(:github) %>
+          </div>
+
+          <div>
+            <%= link_to "Sign Out", destroy_user_session_path %>
+          </div>
           
+          <!-- Flash notices -->
+          <div class="notice"><%= notice %></div>
+          <div class="alert"><%= alert %></div>
+          
+          <div ui-view="devise"></div>
           <div ui-view="main"></div>
           <div ui-view="posts"></div>
+
         </div>
       </div>
     </div>
-
   </body>
 </html>
