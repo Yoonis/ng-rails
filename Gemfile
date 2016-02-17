@@ -25,6 +25,10 @@ gem 'omniauth-github'
 # angular-rails-templates compiles HTML templates into JS files that are inserted into Angular's $templateCache. This allows us to move templates into the asset pipeline.
 gem 'angular-rails-templates'
 
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
