@@ -22,6 +22,9 @@ gem 'devise'
 # Use GitHub provider for OAuth
 gem 'omniauth-github'
 
+# Mount blogger engine
+gem 'blogger', path: "vendor/engines"
+
 # angular-rails-templates compiles HTML templates into JS files that are inserted into Angular's $templateCache. This allows us to move templates into the asset pipeline.
 gem 'angular-rails-templates'
 
