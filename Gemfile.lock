@@ -1,3 +1,9 @@
+PATH
+  remote: vendor/engines
+  specs:
+    blogger (0.0.1)
+      rails (~> 4.2.5)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -204,6 +210,7 @@ PLATFORMS
 DEPENDENCIES
   angular-rails-templates
   bcrypt (~> 3.1.7)
+  blogger!
   byebug
   devise
   factory_girl_rails
